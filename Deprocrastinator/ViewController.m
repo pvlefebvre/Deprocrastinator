@@ -34,9 +34,10 @@
     
 }
 - (IBAction)onRowItemSwiped:(UISwipeGestureRecognizer *)sender {
-    
-    
-    
+    NSLog(@"ahhhhhhhhh");
+    CGPoint point = [sender locationOfTouch:0 inView:self.tableView];
+    NSIndexPath *path = [self.tableView indexPathForRowAtPoint:point];
+    [self.tableView cellForRowAtIndexPath:path].textLabel.textColor = [UIColor redColor];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
