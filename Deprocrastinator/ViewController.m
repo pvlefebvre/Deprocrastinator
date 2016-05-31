@@ -37,7 +37,15 @@
     NSLog(@"ahhhhhhhhh");
     CGPoint point = [sender locationOfTouch:0 inView:self.tableView];
     NSIndexPath *path = [self.tableView indexPathForRowAtPoint:point];
-    [self.tableView cellForRowAtIndexPath:path].textLabel.textColor = [UIColor redColor];
+    
+    UIColor *color = [self.tableView cellForRowAtIndexPath:path].textLabel.textColor;
+    if (color == [UIColor greenColor]) {
+        color = [UIColor yellowColor];
+    } else if (color == [UIColor yellowColor]) {
+        color = [UIColor redColor];
+    } else if (color == [UIColor redColor]) {
+        color = [UIColor blackColor];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
